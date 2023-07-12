@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+  "name": "Rollup TS Chrome Firefox Base",
+  "version": "1.0",
+  "description": "A base for making a browser extension using Rollup and TS for Chrome and Firefox",
+  "icons": {
+    "16": "icons/icon16.png",
+    "24": "icons/icon24.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "64": "icons/icon64.png",
+    "96": "icons/icon96.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [],
+  "background": {
+    "scripts": ["browser-polyfill.js", "background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["browser-polyfill.js", "content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_action": {
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "24": "icons/icon24.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "64": "icons/icon64.png",
+      "96": "icons/icon96.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Rollup TS Chrome Firefox Base"
+  },
+  "devtools_page": "html/devtools-init.html",
+  "options_ui": {
+    "page": "html/options.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "jasper@vdb.dev"
+    }
+  }
+}
